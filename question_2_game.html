@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            table{
+                border: 5px solid #175c5c;
+                background:#296380;
+                border-collapse:collapse;
+                position:relative;
+            }
+            td {
+                border: 1px solid black;
+                height: 60px;
+                width: 60px;
+                background:#fac439;
+            }
+            .battery-1{ position:absolute; left:7px; top:13px;z-index:99}
+            .blink{
+                animation: blink 1s infinite;
+            }
+            @keyframes blink{
+                0%{opacity: 1;}
+                75%{opacity: 1;}
+                76%{ opacity: 0;}
+                100%{opacity: 0;}
+            }
+            .succ {
+                color: #4F8A10;
+                background-color: #DFF2BF;
+                margin-top: 12px;
+                width: 216px;
+                border: 1px solid;
+                padding-left: 10px;
+            }
+        </style>
+
+        <script type="text/javascript">
+            function restrict(keytype) {
+                var hideenH = document.getElementById("h").value;
+                var hideenV = document.getElementById("v").value;
+                var concatHVCheck = hideenH + hideenV;
+
+                if (keytype == "left") {
+                    //   var hideenH = document.getElementById("h").value;
+                    if (hideenH > 1) {
+                        document.getElementById("h").value = hideenH - 1;
+                    }
+                }
+                if (keytype == "right") {
+                    //   var hideenH = document.getElementById("h").value;
+                    document.getElementById("h").value = parseInt(hideenH) + 1;
+                }
+                if (keytype == "up") {
+                    document.getElementById("v").value = hideenV - 1;
+
+
+                }
+
+                if (keytype == "down") {
+                    document.getElementById("v").value = parseInt(hideenV) + 1;
+
+                    if (concatHVCheck == '61') {
+                        document.getElementById("fstbat").src = "images/battery-2.jpg";
+                        document.getElementById("fstbat").className += " blink";
+                        document.getElementById("sebat").src = "";
+                        return false;
+
+                    }
+
+
+                }
+
+
+            }
+            function leftArrowPressed() {
+                var element = document.getElementById("image1");
+                var curPx = element.style.left.replace('px', '');
+
+                if (curPx > 55) {
+                    restrict('left');
+                    element.style.left = parseInt(element.style.left) - 65 + 'px';
+                }
+            }
+
+            function rightArrowPressed() {
+
+                var element = document.getElementById("image1");
+
+                var curPx = element.style.left.replace('px', '');
+//                alert(curPx);
+                if (curPx < 300) {
+                    restrict('right');
+
+                    element.style.left = parseInt(element.style.left) + 65 + 'px';
+                }
+
+            }
+
+            function upArrowPressed() {
+
+                var hideenH = document.getElementById("h").value;
+                var hideenV = document.getElementById("v").value;
+                var concatHVCheck1 = hideenH + hideenV;
+                if (concatHVCheck1 == '62') {
+                    return false;
+                }
+
+                var element = document.getElementById("image1");
+                var curPx = element.style.top.replace('px', '');
+
+                if (curPx >= 45) {
+                    restrict('up');
+
+                    element.style.top = parseInt(element.style.top) - 70 + 'px';
+                }
+            }
+
+            function downArrowPressed() {
+                var element = document.getElementById("image1");
+                var curPx = element.style.top.replace('px', '');
+
+                if (curPx < 130) {
+
+                    restrict('down');
+
+                    element.style.top = parseInt(element.style.top) + 70 + 'px';
+                }
+            }
+
+            function moveSelection(evt) {
+                var hideenH = document.getElementById("h").value;
+                var hideenV = document.getElementById("v").value;
+                var concatHV = hideenH + hideenV;
+                //alert(concatHV);
+                switch (evt.keyCode) {
+                    case 37:
+                        if (concatHV != '33' && concatHV != '51' && concatHV != '21' && concatHV != '62') {
+                            leftArrowPressed();
+                            break;
+                        } else {
+                            return false;
+                        }
+
+                    case 39:
+                        if (concatHV != '23' && concatHV != '11' && concatHV != '41' && concatHV != '52') {
+                            rightArrowPressed();
+                            break;
+
+                        } else {
+                            return false;
+                        }
+                    case 38:
+
+                        if (concatHV != '22' && concatHV != '42' && concatHV != '63' && concatHV != '23') {
+                            upArrowPressed();
+                            break;
+
+                        } else {
+                            return false;
+                        }
+
+
+                    case 40:
+                        if (concatHV == '61') {
+                            downArrowPressed();
+                            document.getElementById('msg').style.display = 'block';
+                            return false;
+                        }
+                        else if (concatHV != '22' && concatHV != '62' && concatHV != '21' && concatHV != '41') {
+                            downArrowPressed();
+                            break;
+
+                        } else {
+                            return false;
+                        }
+                }
+            }
+            ;
+
+            function docReady()
+            {
+                window.addEventListener('keydown', moveSelection);
+            }
+
+        </script>
+    </head>
+    <body onload="docReady()" onkeydown="" onkeyup="">
+        <table id="tableid" bgcolor="#00FF00">
+            <img src="images/battery-1.jpg" id="fstbat" class="battery-1">
+            <tr>
+                <td>
+                    <img id="image1" class="" style="position: absolute;left:13px;top:10px; " src="images/light.jpg" >
+                </td>
+                <td style="border-left:4px solid #0d3b62; border-bottom:4px solid #0d3b62" ></td>
+                <td></td>
+                <td style="border-right:4px solid #0d3b62; border-bottom:4px solid #0d3b62"></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td align="center" style="border-left:4px solid #0d3b62; border-bottom:4px solid #0d3b62"><img id="sebat" src="images/battery-2.jpg"></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td style="border-right:4px solid #0d3b62; border-top:4px solid #0d3b62"></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+        </table>
+        <input type="hidden" id="h" value="1"/>
+        <input type="hidden" id="v" value="1"/>
+        <div class="succ" id="msg" style="display:none">
+            <strong>Success!</strong> Battery fully charged!
+        </div>
+        <h2>Note: Use arrow keys to change the matrix.</h2>
+    </body>
+</html>

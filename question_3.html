@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+            .well {margin-left: 90px}
+            .label{font-size: 20px}
+            .bordercolor{border: 3px solid red}
+        </style>
+    </head>
+    <body>
+
+        <hr>
+        <h3 style="padding:10px">Splitted 128 within 7 boxes. When the user enters any below mentioned digit in that, digit box will highlighted with red bold border using Javascript. </h3>
+        <hr>
+        <div class="container-fluid" id="maindiv">
+            <div class="alert alert-danger" id="msg" style="display:none">
+                <strong>Warning!</strong> Please enter one of following digit
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="well" id="10">
+                                <span class="label label-primary" >10 </span>  
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="well" id="30">
+                                <span class="label label-primary" >30 </span>  
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="well" id="5">
+                                <span class="label label-primary" >5 </span>  
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="well" id="25">
+                                <span class="label label-primary" >25 </span>  
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="well" id="28">
+                                <span class="label label-primary"  >28 </span>  
+                            </div>
+                        </div>
+
+                    </div><!--/row-->    
+                </div><!--/col-12-->
+            </div><!--/row-->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="well"id="22">
+                                <span class="label label-primary" >22 </span>  
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="well"id="8">
+                                <span class="label label-primary" >8 </span>  
+                            </div>
+                        </div>
+                    </div><!--/row-->    
+                </div><!--/col-12-->
+            </div><!--/row-->
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <div class="col-md-4" style="margin-left:75px">
+                        <input type="text" id="entry" placeholder="Enter Number">
+                    </div>
+
+                    <div class="col-md-2" style="margin-left:20px">
+                        <button id="button" onclick="return checkNumber()"> Entry
+                        </button>
+                    </div>
+                </div>
+
+            </div><!--/row-->
+        </div>
+    </body>
+    <script>
+
+        function checkNumber() {
+            document.getElementById('msg').style.display = 'none';
+
+            var value = document.getElementById('entry').value;
+            var existValue = ['10', '30', '5', '25', '28', '22', '8'];
+            existValue.forEach(function (element) {
+                document.getElementById(element).className = 'well';
+            });
+
+            if (existValue.indexOf(value) > -1) {
+                document.getElementById(value).className = 'well bordercolor';
+            } else {
+
+                document.getElementById('msg').style.display = 'block';
+
+            }
+
+        }
+
+    </script>
+</html>

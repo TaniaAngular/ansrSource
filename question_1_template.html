@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Template Example</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <style>
+            /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+            .row.content {height: 660px; max-height:100%;}
+
+            /* Set gray background color and 100% height */
+            .sidenav {
+                background-color: #f1f1f1;
+                height: 100%;
+            }
+
+            /* Set black background color, white text and some padding */
+            footer {
+                background-color: #555;
+                color: white;
+                padding: 15px;
+            }
+            .nav-stacked{margin-left: 50px}
+            .nav-stacked li{
+                width: 100px;
+                text-align:center;
+                font-size: 30px;
+                color: black;
+                margin:0 0 30px 0px; 
+            }
+            .footercls{
+                position: fixed;
+                bottom: 0;
+                width: 90%;
+                margin:0 !important;  
+            }
+            .footer-icon{
+                position: absolute;
+                left: 45%;
+            }
+			.modal-content{ background:#424146}
+			.modal-header{ color:#fff; border-bottom:none; position:relative; padding:10px}
+			.modal-icon{ position:fixed; left:34.9%; top:0; background:#3dd1b4;border-radius:0 0 19px 19px; z-index:99;webkit-box-shadow: 0 2px 0px rgba(0,0,0,.5);box-shadow: 0 3px 9px rgba(0,0,0,.2); width:194px; height:59px}
+			.modal-icon-1 {
+			 
+			  width: 0 !important; 
+			  height: 0 !important;
+			  left:26.8% !important;
+			  top:-1px;
+			  z-index:100; 
+			  position:absolute !important;
+			  border-left: 50px solid transparent !important;
+			  border-right: 50px solid transparent !important; 
+			  border-top: 50px solid #3dd1b4 !important;
+			}
+			.modal-icon-2 {
+			 
+			  width: 0 !important; 
+			  height: 0 !important;
+			  right:24.9% !important;
+			  top:-1px;
+			  z-index:100; 
+			  position:absolute !important;
+			  border-left: 50px solid transparent !important;
+			  border-right: 50px solid transparent !important; 
+			  border-top: 50px solid #3dd1b4 !important;
+			}
+			.modal-icon i:first-child{ margin-left:32px}
+			
+
+			.modal-icon i{ 
+			display:inline-block; font-size:16px;color:#000; background:#5bd5be; border-radius:50%; margin:10px 7px 0 0;
+    height: 35px;
+    width: 35px;
+    padding: 9px;
+	 }
+			.modal-body{background:#ebeff2;border-radius:0 0 10px 10px; margin:0 10px; min-height:150px}
+			.modal-footer{ border-top:none;}
+			.close{color:#3dd1b4 !important; width:30px;text-shadow:none; opacity:1; }
+			.close:hover{color:#3dd1b4 !important;opacity:1;}
+			.footer-icon i{ display: inline-block; margin-right:10px; position:relative; }
+            /* On small screens, set height to 'auto' for sidenav and grid */
+            @media screen and (max-width: 767px) {
+                .sidenav {
+                    height: auto;
+                    padding: 15px;
+                }
+                .row.content {height: auto;} 
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class="container-fluid">
+            <div class="row content">
+                <div class="col-sm-1 sidenav">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="fa-li fa fa-home" class="active"></li>
+                        <li class="fa-li fa fa-sticky-note-o"></li>
+                        <li class="fa-li fa fa-address-book-o"></li>
+                        <li class="fa-li  fa fa-volume-up"></li>
+                        <li class="fa-li  fa fa-repeat"></li>
+
+                        <li class="fa-li fa fa-play"></li>
+
+                    </ul>
+
+                </div>
+
+                <div class="col-sm-11">
+                    <div class="panel panel-default">
+                        <div class="panel-heading row"><h3 class="text-center">Main title goes here</h3></div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading "><h3 class="text-center">recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</h3></div>
+                    </div>
+                    <div class="panel panel-default" style="height:100%">
+                        <div class="panel-heading row"><h3 class="text-center"> Click on bottom play icon to get the popup.</h3></div>
+                    </div>
+                    <div class="panel panel-default footercls">
+                        <div class="panel-heading row"><div class="pull-left"><i class="glyphicon glyphicon-chevron-left"></i></div>
+                            <div class="footer-icon">
+                            <i class="fa-li fa fa-play"  data-toggle="modal" data-target="#myModal"></i>
+                            <i class="fa-li fa fa-volume-up"  ></i>
+                            <i class="fa-li fa fa-repeat"  ></i>
+                            </div>
+                            <div class="pull-right"><i class="glyphicon glyphicon-chevron-right"></i></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+ <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4 class="modal-title">Modal Header</h4>
+          <div class="modal-icon-1"></div>
+           <div class="modal-icon-2"></div>
+          <div class="modal-icon"> 
+          	<i class="glyphicon glyphicon-envelope"></i>
+            <i class="glyphicon glyphicon-download-alt"></i>
+            <i class="glyphicon glyphicon-print"></i>
+           </div>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      
+    </div>
+ 
+
+    </body>
+</html>
